@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>호수의 기술 리뷰</title>
+  <link>https://simsimhae91.github.io/legendary-octo-fishstick/</link>
+  <description>최신 기술과 논문을 읽고 남기는 리뷰</description>
+  <language>ko</language>
+  <lastBuildDate>Fri, 30 Oct 2026 09:23:37 GMT</lastBuildDate>
+  <item>
+    <title>‘어디까지 했나’ 기록만으로 성공률 12.0%→28.2%</title>
+    <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-10-30-arxiv-2610-37482.html</link>
+    <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-10-30-arxiv-2610-37482.html</guid>
+    <pubDate>Thu, 29 Oct 2026 23:24:08 GMT</pubDate>
+    <description>TAM(Task Advancement Memory)은 모바일 화면에서 확인된 진행만 &apos;완료&apos;로 기록하고, 그 결과를 남은 목표의 입력으로 넘기는 에이전트 메모리입니다. MobileWorld에서는 가장 강한 비교 방식(29.1%)보다 높은 34.2% 성공률을 냈고, 진행</description>
+  </item>
+</channel>
+</rss>
