@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLM이 만든 법률 QA 데이터, 검증은 충분했을까? — 호수의 기술 리뷰</title>
+<meta name="description" content="GPT-4o로 만든 인도 지식재산권 법 추출형 QA 4,462쌍에서는 InLegalBERT(인도 법률 문서로 사전 학습한 언어 모델)를 미세 조정한 결과가 F1(정밀도와 재현율을 함께 본 점수) 85.02로 가장 높았습니다. 하지만 이 모델이 정답과 완전히 일치하지…">
+<link rel="canonical" href="https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLM이 만든 법률 QA 데이터, 검증은 충분했을까?">
+<meta property="og:description" content="GPT-4o로 만든 인도 지식재산권 법 추출형 QA 4,462쌍에서는 InLegalBERT(인도 법률 문서로 사전 학습한 언어 모델)를 미세 조정한 결과가 F1(정밀도와 재현율을 함께 본 점수) 85.02로 가장 높았습니다. 하지만 이 모델이 정답과 완전히 일치하지…">
+<meta property="og:url" content="https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html">
+<meta property="og:site_name" content="호수의 기술 리뷰">
+<meta property="article:published_time" content="2026-10-31T23:25:10.031Z">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="호수의 기술 리뷰" href="../rss.xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css">
+<style>
+:root{--ink:#1c1f24;--sub:#5d6570;--line:#e4e7eb;--src:#f4f6f8;--mine:#fff6e5;--mine-line:#f0b34a;--link:#1f5f93}
+*{box-sizing:border-box}
+html{font-size:100%}
+body{margin:0;font-family:Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:1.0625rem;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}
+.e{font-family:Tossface,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-style:normal}
+header.site{border-bottom:1px solid var(--line);padding:.75rem 1.25rem;font-size:.9rem}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700}
+main{max-width:40em;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+.kicker{font-size:.85rem;color:var(--sub)}
+h1{font-size:1.75rem;line-height:1.35;margin:.4rem 0 .8rem;letter-spacing:-.01em}
+.src-line{font-size:.9rem;color:var(--sub);margin:0 0 1.5rem}
+.tldr{background:var(--src);border-radius:12px;padding:1rem 1.1rem;font-size:1.05rem;font-weight:600;margin:0 0 2rem}
+.tldr small{display:block;font-size:.8rem;color:var(--sub);font-weight:600;margin-bottom:.25rem}
+.tldr p{margin:0}
+h2{font-size:1.25rem;margin:2.4rem 0 .6rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.tag{font-size:.72rem;font-weight:700;padding:.15rem .5rem;border-radius:999px;background:#e3effa;color:#1f5f93;letter-spacing:.02em}
+.tag.mine{background:#fde7bd;color:#8a5400}
+p{margin:0 0 1rem}
+a{color:var(--link)}
+code{font-size:.9em;background:var(--src);padding:.05rem .3rem;border-radius:4px}
+pre{overflow-x:auto}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:0 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:break-word}
+th{background:var(--src);font-size:.82rem;color:var(--sub)}
+td.num{font-weight:700}
+td small{color:var(--sub)}
+ul,ol{padding-left:1.2rem;margin:0 0 1rem}li{margin:.3rem 0}
+blockquote{margin:0 0 1rem;padding-left:.8rem;border-left:3px solid var(--line);color:var(--sub)}
+.mine-note{font-size:.9rem;color:var(--sub);margin-top:-.2rem}
+.mine-box{background:var(--mine);border-left:4px solid var(--mine-line);border-radius:0 12px 12px 0;padding:1rem 1.1rem;margin:0 0 1rem}
+.mine-box h3{font-size:1rem;margin:.2rem 0 .3rem}
+.mine-box p:last-child{margin:0}
+.origin{border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;font-size:.95rem}
+.origin b{display:block;margin-bottom:.2rem}
+.disclosure{margin-top:2.5rem;padding:.9rem 1.1rem;border-top:2px solid var(--line);font-size:.92rem;color:#3b424b;display:flex;gap:.6rem;align-items:flex-start}
+.ev{border-left:3px solid #c9d8e8;padding-left:.8rem;margin:.6rem 0}
+.ev q{display:block;font-size:.88rem;color:var(--sub);margin-top:.2rem}
+.ev small{font-size:.82rem;color:var(--sub)}
+.posts{list-style:none;padding:0}
+.posts li{border-bottom:1px solid var(--line);padding:1rem 0;margin:0}
+.posts a{font-weight:700;font-size:1.1rem;text-decoration:none}
+.posts small{display:block;color:var(--sub);font-size:.85rem}
+</style></head><body>
+<header class="site"><a href="../index.html">호수의 기술 리뷰</a></header>
+<main>
+<div class="kicker">논문 리뷰 · LLM 평가·자기개선 루프 · 2026년 11월 1일</div>
+<h1>LLM이 만든 법률 QA 데이터, 검증은 충분했을까?</h1>
+<p class="src-line">원문: <a href="https://arxiv.org/abs/2610.40518">IndicIPR-QA: A Benchmark for Extractive Question Answering on Indian IPR Laws</a> · arXiv(논문 공개 사이트) 2610.40518 · 2026년 10월 30일 공개</p>
+
+<div class="tldr"><small>한 줄 요약</small><p>GPT-4o로 만든 인도 지식재산권 법 추출형 QA 4,462쌍에서는 InLegalBERT(인도 법률 문서로 사전 학습한 언어 모델)를 미세 조정한 결과가 F1(정밀도와 재현율을 함께 본 점수) 85.02로 가장 높았습니다. 하지만 이 모델이 정답과 완전히 일치하지 못한 예측의 80.0%는 답의 시작이나 끝을 잘못 자른 경계 오류였습니다. 데이터 검증 단계에서는 LLM 심판을 어떻게 설정하느냐에 따라 문제로 표시된 비율이 5.0%와 0.6%로 갈렸습니다.</p></div>
+
+<h2>무엇을 했나 <span class="tag">원문 내용</span></h2>
+<p><strong>무엇을 만들었나.</strong> 원문은 인도의 IPR(Intellectual Property Rights, 지식재산권) 법 일곱 개를 다루는 추출형 QA 벤치마크 IndicIPR-QA를 공개했습니다. 추출형 QA는 답을 새로 쓰지 않고 법조문 안의 문구를 그대로 잘라 내는 방식입니다. 그래서 답이 어느 조문에서 왔는지 바로 확인할 수 있습니다. 대상은 특허·상표·저작권·디자인·지리적 표시·반도체 회로 배치설계·식물 품종 보호에 관한 법입니다. 저자들은 조문을 단락으로 나눈 뒤 GPT-4o에게 단락마다 질문과 답을 최대 다섯 개씩 만들게 했습니다. 이렇게 얻은 후보 5,721개를 규칙 필터 아홉 개와 단락 균형 선택으로 걸러 4,462쌍을 남겼습니다. 답 길이는 평균 35.6단어입니다. 일반 독해 벤치마크 SQuAD(위키백과 지문 기반 질의응답 데이터셋)의 평균은 3.2단어입니다. 학습·검증·테스트 세트는 3,710/408/344쌍입니다. 같은 조문이 두 세트에 함께 들어가지 않도록 조문 단위로 나눴습니다.</p>
+<p><strong>검증은 세 단계로 했습니다.</strong> 첫째는 규칙 필터입니다. 자동으로 제외된 1,032건 중 1,012건이 두 필터에서 나왔습니다. 하나는 답이 너무 짧거나 긴지 보는 필터이고, 다른 하나는 답이 지문 대부분을 덮는지 보는 필터입니다. 둘째는 LLM 심판(LLM에게 품질 채점을 맡기는 방식)이고, 두 가지 설정으로 돌렸습니다. Gemma 모델 하나로 채점하면 전체의 5.0%가 문제로 표시됐습니다. Gemma·Llama·Mistral 세 모델이 다수결로 채점하면 0.6%만 표시됐습니다. 세 모델이 네 기준 모두에서 같은 점수를 준 쌍은 8.0%뿐이었습니다. 셋째는 사람 검토입니다. 법학 졸업생 두 명이 테스트 200쌍을 따로 검토했습니다. 두 사람 모두 '쓸 만함' 이상으로 평가한 비율은 답 정확성이 95.0%였습니다. 답 최소성(정답을 담은 가장 짧은 구간인지)은 75.5%였습니다. 두 사람 모두 최소 구간이 아니라고 본 쌍은 36개였습니다.</p>
+<p><strong>결과.</strong> BERT(Bidirectional Encoder Representations from Transformers, 문장의 앞뒤 맥락을 함께 읽는 언어 모델) 계열 인코더 네 개를 미세 조정해 비교했습니다. 여기서 인코더는 문장을 읽고 답의 시작·끝 위치를 고르는 모델입니다. 네 모델 중 InLegalBERT의 테스트 F1이 85.02로 가장 높았습니다. 비교 기준으로는 BM25(겹치는 단어로 문장 순위를 매기는 고전 검색 방식)를 썼습니다. BM25의 F1은 20.21이었고, 정답이 든 단락을 미리 알려 줘도 51.30에 그쳤습니다. 인코더끼리는 차이가 작았습니다. 일반 영어로 학습한 BERT-base도 83.33이었습니다. 원문은 법률 도메인 사전 학습만으로 성능이 좋아진다는 강한 근거는 없다고 밝혔습니다. 프롬프트만으로 답하게 한 오픈 LLM 세 종(Mistral, Llama, Qwen)도 평가했습니다. 그중 가장 좋은 설정도 InLegalBERT보다 F1이 7.43점 낮았습니다.</p>
+<p><strong>어디서 틀렸나.</strong> InLegalBERT가 정답과 완전히 일치하지 못한 예측 가운데 80.0%는 답 구간의 시작이나 끝을 잘못 잡은 경계 오류였습니다. 여러 조항이 이어진 답은 EM(exact match, 정답과 글자 그대로 일치한 비율)이 56.10이었습니다. 조항 하나짜리 답의 EM은 66.03이었습니다. 법별 F1은 디자인법 100.00부터 식물 품종 보호법 53.20까지 차이가 컸습니다.</p>
+
+<h2>핵심 수치 <span class="tag">원문 내용</span></h2>
+<div class="tbl"><table>
+<thead><tr><th>지표</th><th>값</th><th>원문 위치</th></tr></thead>
+<tbody>
+<tr><td>InLegalBERT 테스트 F1</td><td class="num">85.02<br><small>비교: BM25 achieves a token level F1 of 20.21</small></td><td><small>I Introduction</small></td></tr>
+<tr><td>단일 LLM 심판이 문제로 표시한 쌍 비율</td><td class="num">5.0%<br><small>비교: 26 pairs (0.6%)</small></td><td><small>III-E LLM as Judge Quality Verification</small></td></tr>
+<tr><td>답 최소성 공동 합격률(사람 검토)</td><td class="num">75.5%</td><td><small>III-F Human Validation Study</small></td></tr>
+<tr><td>프롬프트 LLM 최고 결과와의 F1 차이</td><td class="num">7.43<br><small>비교: 미세 조정한 InLegalBERT</small></td><td><small>V-A Results</small></td></tr>
+<tr><td>InLegalBERT 비완전일치 예측 중 경계 오류</td><td class="num">80.0%</td><td><small>V-A Results</small></td></tr>
+</tbody></table></div>
+
+<h2>한계·반론 <span class="tag">원문 내용</span></h2>
+<ul><li><strong>질문이 한 가지 생성 과정에서 나왔습니다.</strong> 질문은 모두 GPT-4o가 만들었고, 'what does'로 시작하는 질문만 1,157개입니다. 원문은 이 결과가 같은 방식으로 만든 질문을 처음 보는 조문에서 얼마나 잘 푸는지를 보여 줄 뿐이라고 밝힙니다. 사람이 직접 쓴 법률 질문의 성능을 잰 것은 아니라는 뜻입니다. BM25와의 64.81점 차이도 실제 법률 질문으로 일반화된다는 증거는 아니라고 적었습니다.</li><li><strong>사람 검토는 사후 진단용입니다.</strong> 검토 결과는 필터링에 쓰이지 않았습니다. 그래서 두 검토자 모두 최소 구간이 아니라고 본 36쌍도 공개 데이터에 그대로 남아 있습니다. 검토 화면이 긴 지문을 잘라 보여 줬다는 점도 원문이 한계로 적었습니다.</li><li><strong>필터 효과는 확정되지 않았습니다.</strong> 필터 제거 실험은 시드 하나로만 돌렸고 유의성 검정을 하지 않았습니다. 단락 균형 선택을 빼면 F1이 1.34점 떨어졌습니다. 반대로 답 길이 필터를 빼면 오히려 0.45점 올랐습니다. 원문은 이 결과를 진단용으로만 다룹니다.</li><li><strong>법별 비교와 적용 범위가 좁습니다.</strong> 디자인법의 100.00은 테스트가 24쌍뿐이라 조심해서 봐야 한다고 원문이 밝혔습니다. 질문-지문 단어 겹침과 F1의 상관(-0.928)도 법 일곱 개로만 계산한 탐색적 결과입니다. 데이터는 영어 질문, 답이 있는 질문, 단락 하나 안에서 답이 끝나는 질문으로 한정됩니다.</li></ul>
+
+<h2>시사점 <span class="tag mine">제 해석</span></h2>
+<p class="mine-note">여기부터는 원문이 아니라 제 해석입니다.</p>
+<div class="mine-box"><h3><i class="e">🛠️</i> 기술</h3><p>결론부터 말하면, 이 논문에서 가장 쓸모 있는 부분은 85.02라는 점수가 아닙니다. 검증 단계마다 결과가 크게 갈렸다는 기록입니다. 같은 데이터를 LLM 심판 하나가 보면 5.0%가, 셋이 다수결로 보면 0.6%가 문제로 잡혔습니다. 차이가 가장 큰 기준은 답 최소성이었습니다. 앙상블은 이 기준에서 0.4%만 표시했습니다. 반면 사람 두 명은 표본 200쌍 중 36쌍을 둘 다 최소 구간이 아니라고 봤습니다. 표본과 채점 방식이 달라 직접 비교할 숫자는 아니지만 방향은 분명합니다. LLM 심판도 셋이 모이면 너그러워지는 셈이죠. 그렇다면 LLM 심판 점수가 높게 나오면 데이터도 좋다고 믿어도 될까요? 적어도 이 결과로는 아닙니다. 그래도 칭찬할 점은 있습니다. 학습·테스트 지문이 겹치지 않게 조문 단위로 나눴습니다. 필터를 빼니 점수가 오른 불리한 결과도 숨기지 않고 공개했습니다. 둘 다 확실히 잘한 결정입니다. 다만 법률 특화 사전 학습이 꼭 필요한지는 이 결과만으로 판단하기 어렵습니다. 인코더끼리 차이가 작았기 때문입니다.</p>
+<p>이 교훈은 법률 데이터에만 해당하지 않습니다. LLM으로 평가셋이나 학습 데이터를 만든다면 다음 세 가지를 갖추면 좋겠습니다. 첫째, LLM 심판의 점수를 기준마다 사람 표본과 맞춰 봐야 합니다. 특히 가장 어려운 기준에서 얼마나 어긋나는지부터 재야 합니다. 둘째, 사람 검토 결과가 다시 필터와 심판 프롬프트에 반영돼야 합니다. 원문은 36쌍을 그대로 남겼습니다. 평가는 했지만 고치는 단계가 없어서, 평가 결과가 다시 데이터를 고치는 순환이 닫히지 않은 상태입니다. 셋째, 데이터 품질을 모델 점수로 판단하면 안 됩니다. 답 길이 필터를 뺐더니 F1이 0.45점 오른 결과가 그 예입니다. 덧붙여 BM25와의 64.81점 차이는 그대로 받아들이기 어렵습니다. BM25는 답 구간을 정밀하게 자르는 방법이 아니라 겹치는 단어로 후보를 고르는 방법입니다. 그래서 경계를 맞히는 과제에서는 구조적으로 불리합니다. 정답 단락을 줬을 때 나온 51.30이 더 공정한 비교 기준입니다. 완전 일치하지 못한 예측의 80.0%가 경계 오류였으니, 다음 실험은 경계 문제에 집중하는 게 맞습니다. 세미콜론이나 열거 번호 같은 조항 경계를 답의 끝점 후보로 쓰는 디코더를 붙이고, 경계 오류가 줄어드는지 보면 됩니다. 공개된 데이터와 코드로 바로 해볼 수 있는 실험이니 여기서부터 시작해봅시다.</p></div>
+<div class="mine-box"><h3><i class="e">💼</i> 사업</h3><p>법조문, 약관, 사내 규정처럼 문구 그대로가 중요한 문서에서 답을 찾아 주는 서비스를 준비한다면, 이 논문에서 두 가지를 가져갈 만합니다. 첫째, 답을 원문 문구 그대로 잘라 보여 주면 고객이나 담당자가 근거를 바로 확인할 수 있습니다. 이 과제에서는 해당 데이터로 미세 조정한 작은 인코더 모델의 F1이 프롬프트만 쓴 오픈 LLM보다 7.43점 높았습니다. 다만 비교한 LLM은 오픈 모델 세 종뿐입니다. 가장 큰 상용 LLM까지 이긴다는 뜻은 아닙니다. 큰 모델에 비용을 쓰기 전에 작은 모델로 어디까지 되는지 먼저 재 보자는 근거 정도로 읽는 게 맞습니다. 둘째, 평균 점수는 약한 영역을 가립니다. 같은 모델이 디자인법에서는 100.00, 식물 품종 보호법에서는 53.20이었습니다. 출시 기준을 전체 평균 하나로 정하면 위험합니다. 문서 종류나 상품군별로 따로 세워야 안전합니다.</p>
+<p>데이터를 만드는 방식도 참고할 만합니다. LLM으로 질문을 대량 생성하고, 규칙으로 거르고, 전문가 두 명이 표본만 검토하는 구성입니다. 사람이 처음부터 모두 쓰는 방식보다 인력이 덜 듭니다. 대신 원문도 밝혔듯 이 점수는 LLM이 만든 질문을 기준으로 잰 것입니다. 실제 사용자가 직접 쓴 질문에서의 성능은 아닙니다. 그래서 모델을 바꾸기 전에 실제 고객 질문을 모아 평가셋에 섞는 일이 먼저입니다. 저자들은 이 데이터를 법률 자문 서비스가 아닌 연구용 벤치마크로 규정했습니다. 그러니 서비스에 바로 넣기보다 자사 모델을 비교하는 기준점으로 쓰는 편이 맞습니다.</p></div>
+
+<h2>원문</h2>
+<div class="origin"><b>IndicIPR-QA: A Benchmark for Extractive Question Answering on Indian IPR Laws</b>
+<a href="https://arxiv.org/abs/2610.40518">arxiv.org/abs/2610.40518</a> · 2026년 10월 30일 공개 · 전문(arXiv HTML)을 읽고 썼습니다</div>
+
+</main></body></html>
