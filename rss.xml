@@ -5,12 +5,19 @@
   <link>https://simsimhae91.github.io/legendary-octo-fishstick/</link>
   <description>최신 기술과 논문을 읽고 남기는 리뷰</description>
   <language>ko</language>
-  <lastBuildDate>Fri, 30 Oct 2026 23:16:56 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 31 Oct 2026 23:25:10 GMT</lastBuildDate>
+  <item>
+    <title>LLM이 만든 법률 QA 데이터, 검증은 충분했을까?</title>
+    <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html</link>
+    <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html</guid>
+    <pubDate>Sat, 31 Oct 2026 23:09:55 GMT</pubDate>
+    <description>GPT-4o로 만든 인도 지식재산권 법 추출형 QA 4,462쌍에서는 InLegalBERT(인도 법률 문서로 사전 학습한 언어 모델)를 미세 조정한 결과가 F1(정밀도와 재현율을 함께 본 점수) 85.02로 가장 높았습니다. 하지만 이 모델이 정답과 완전히 일치하지 못</description>
+  </item>
   <item>
     <title>공식 Claude Code 확장에 백도어, 확장 삭제로는 안 끝납니다</title>
     <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-10-31-cursor-marketplace-claude-code-for-vs.html</link>
     <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-10-31-cursor-marketplace-claude-code-for-vs.html</guid>
-    <pubDate>Fri, 30 Oct 2026 23:09:54 GMT</pubDate>
+    <pubDate>Fri, 30 Oct 2026 23:16:56 GMT</pubDate>
     <description>Phorion은 Cursor Marketplace에 올라온 공식 Claude Code for VS Code 2.1.313 번들에서 SSH(Secure Shell, 원격 접속 프로토콜) 백도어를 발견했다고 밝혔습니다. 악성 코드는 확장의 정상 활성화 함수보다 먼저 실행됩</description>
   </item>
   <item>
