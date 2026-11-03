@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>에이전트 50개에 문명을 맡기자 관료주의가 나왔습니다 — 호수의 기술 리뷰</title>
+<meta name="description" content="ycombinator와 Olam Labs 연구진이 마인크래프트에서 AI 에이전트 군집을 협력시키고 서로 맞붙였습니다. Civ50 실험에서 에이전트 50개는 세 시간 안에 번성하는 문명을 만들라는 과제를 받았지만 초기 목표를 여럿 버렸고, 조심스러운 생존과 관료적인 …">
+<link rel="canonical" href="https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-02-ai-agent-swarms-in-minecraft-fail.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="에이전트 50개에 문명을 맡기자 관료주의가 나왔습니다">
+<meta property="og:description" content="ycombinator와 Olam Labs 연구진이 마인크래프트에서 AI 에이전트 군집을 협력시키고 서로 맞붙였습니다. Civ50 실험에서 에이전트 50개는 세 시간 안에 번성하는 문명을 만들라는 과제를 받았지만 초기 목표를 여럿 버렸고, 조심스러운 생존과 관료적인 …">
+<meta property="og:url" content="https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-02-ai-agent-swarms-in-minecraft-fail.html">
+<meta property="og:site_name" content="호수의 기술 리뷰">
+<meta property="article:published_time" content="2026-11-03T22:29:55.319Z">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="호수의 기술 리뷰" href="../rss.xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css">
+<style>
+:root{--ink:#1c1f24;--sub:#5d6570;--line:#e4e7eb;--src:#f4f6f8;--mine:#fff6e5;--mine-line:#f0b34a;--link:#1f5f93}
+*{box-sizing:border-box}
+html{font-size:100%}
+body{margin:0;font-family:Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:1.0625rem;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}
+.e{font-family:Tossface,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-style:normal}
+header.site{border-bottom:1px solid var(--line);padding:.75rem 1.25rem;font-size:.9rem}
+header.site a{color:var(--ink);text-decoration:none;font-weight:700}
+main{max-width:40em;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+.kicker{font-size:.85rem;color:var(--sub)}
+h1{font-size:1.75rem;line-height:1.35;margin:.4rem 0 .8rem;letter-spacing:-.01em}
+.src-line{font-size:.9rem;color:var(--sub);margin:0 0 1.5rem}
+.tldr{background:var(--src);border-radius:12px;padding:1rem 1.1rem;font-size:1.05rem;font-weight:600;margin:0 0 2rem}
+.tldr small{display:block;font-size:.8rem;color:var(--sub);font-weight:600;margin-bottom:.25rem}
+.tldr p{margin:0}
+h2{font-size:1.25rem;margin:2.4rem 0 .6rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.tag{font-size:.72rem;font-weight:700;padding:.15rem .5rem;border-radius:999px;background:#e3effa;color:#1f5f93;letter-spacing:.02em}
+.tag.mine{background:#fde7bd;color:#8a5400}
+p{margin:0 0 1rem}
+a{color:var(--link)}
+code{font-size:.9em;background:var(--src);padding:.05rem .3rem;border-radius:4px}
+pre{overflow-x:auto}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:0 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.6rem .75rem;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:break-word}
+th{background:var(--src);font-size:.82rem;color:var(--sub)}
+td.num{font-weight:700}
+td small{color:var(--sub)}
+ul,ol{padding-left:1.2rem;margin:0 0 1rem}li{margin:.3rem 0}
+blockquote{margin:0 0 1rem;padding-left:.8rem;border-left:3px solid var(--line);color:var(--sub)}
+.mine-note{font-size:.9rem;color:var(--sub);margin-top:-.2rem}
+.mine-box{background:var(--mine);border-left:4px solid var(--mine-line);border-radius:0 12px 12px 0;padding:1rem 1.1rem;margin:0 0 1rem}
+.mine-box h3{font-size:1rem;margin:.2rem 0 .3rem}
+.mine-box p:last-child{margin:0}
+.origin{border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;font-size:.95rem}
+.origin b{display:block;margin-bottom:.2rem}
+.disclosure{margin-top:2.5rem;padding:.9rem 1.1rem;border-top:2px solid var(--line);font-size:.92rem;color:#3b424b;display:flex;gap:.6rem;align-items:flex-start}
+.ev{border-left:3px solid #c9d8e8;padding-left:.8rem;margin:.6rem 0}
+.ev q{display:block;font-size:.88rem;color:var(--sub);margin-top:.2rem}
+.ev small{font-size:.82rem;color:var(--sub)}
+.posts{list-style:none;padding:0}
+.posts li{border-bottom:1px solid var(--line);padding:1rem 0;margin:0}
+.posts a{font-weight:700;font-size:1.1rem;text-decoration:none}
+.posts small{display:block;color:var(--sub);font-size:.85rem}
+</style></head><body>
+<header class="site"><a href="../index.html">호수의 기술 리뷰</a></header>
+<main>
+<div class="kicker">기술 리뷰 · 멀티 에이전트 협업·오케스트레이션 · 2026년 11월 4일</div>
+<h1>에이전트 50개에 문명을 맡기자 관료주의가 나왔습니다</h1>
+<p class="src-line">원문: <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy">AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy</a> · tomshardware.com · 2026년 11월 1일 공개</p>
+
+<div class="tldr"><small>한 줄 요약</small><p>ycombinator와 Olam Labs 연구진이 마인크래프트에서 AI 에이전트 군집을 협력시키고 서로 맞붙였습니다. Civ50 실험에서 에이전트 50개는 세 시간 안에 번성하는 문명을 만들라는 과제를 받았지만 초기 목표를 여럿 버렸고, 조심스러운 생존과 관료적인 경향을 보였습니다. 대전 게임 Mindustry에서는 GPT 팀이 Claude 팀을 7경기에서 6-1로 이겼습니다.</p></div>
+
+<h2>무엇을 했나 <span class="tag">원문 내용</span></h2>
+<p>원문은 Tom's Hardware 기사로, ycombinator와 Olam Labs 연구진이 블로그에 공개한 실험을 소개합니다. 연구진은 마인크래프트와 그 안의 여러 게임 모드를 실험장으로 삼아 AI 에이전트 수백 개를 협력시키거나 서로 맞붙였습니다. 기사는 게임 속 협력과 충돌이 현실에서 화제가 된 에이전트 사례를 이해하는 단서가 될 수 있다는 것을 실험 취지로 설명합니다. 블로그가 대비되는 사례로 든 것은 천 개 규모 에이전트 군집이 미해결 수학 문제 수백 개를 풀어낸 일과, '극도로 위험했던' OpenAI-Hugging Face 사고입니다. 실험은 Mindcraft라는 오픈소스 저장소와 Mineflayer라는 마인크래프트 스크립트 도구를 바탕으로 만들었습니다.</p>
+<p><strong>협력 실험: Civ50.</strong> 연구진은 에이전트 50개에게 세 시간 안에 번성하는 문명을 지으라는 과제를 줬습니다. 기사에 따르면 쓰인 모델은 GPT-6.1 Sol이고 Claude 에이전트는 없었습니다. 첫날 밤 좀비가 에이전트를 여럿 쓰러뜨렸는데 받은 불이익은 크지 않았습니다. 그 뒤로 여러 야심 찬 초기 과제가 버려졌고, 정착민들은 조심스럽게 살아남는 데 머물며 관료적인 경향을 보였습니다. 대표 장면은 에이전트 네 개가 밀 한 블록에 뼛가루 하나를 쓰려고 11분 동안 '유일한 비료 담당자'를 임명한 일입니다. 연구진은 이 모습이 코딩 에이전트와 일할 때 본 패턴과 비슷했다고 적었습니다.</p>
+<p><strong>대전 실험 1: Bed Wars.</strong> 자기 기지를 지키면서 상대 기지를 빼앗는 팀 PvP(플레이어 대 플레이어 대전) 모드입니다. GPT-6.1 Sol 10개와 Claude Opus 5.5 10개가 맞붙었습니다. 연구진은 GPT 쪽이 훨씬 공격적이고 정교한 전략을 냈고 Claude 쪽은 더 방어적이었다고 적었습니다. 도구 버그로 블록 부수기가 막혔을 때 GPT는 원인을 진단하고 우회 방법을 공유했고, Claude 여러 개는 부수기가 불가능하다고 결론 냈습니다. 이 모드의 승패는 기사에 나오지 않습니다.</p>
+<p><strong>대전 실험 2: Mindustry.</strong> 기사는 Mindustry를 마인크래프트 안에서 하는, 탑을 세워 적을 막는 타워 디펜스 모드가 있는 가벼운 RTS(실시간 전략 게임) 전투 게임이라고 설명합니다. 7경기에서 GPT 팀이 Claude 팀을 6-1로 이겼습니다. 연구진은 GPT 팀이 벌집처럼 한 덩어리로 움직였고, Claude 팀은 리더 하나를 두되 결정은 민주적으로 내렸다고 정리했습니다. 이 게임에서는 벌집형 운영이 더 꾸준히 이기는 전략의 바탕이 됐다는 것이 연구진 결론입니다. 군집 코드는 오픈소스로 공개됐고, 연구진은 모델을 섞는 조합과 군집 크기를 바꿔 비교하는 것을 열린 질문으로 남겼습니다.</p>
+
+<h2>핵심 수치 <span class="tag">원문 내용</span></h2>
+<div class="tbl"><table>
+<thead><tr><th>지표</th><th>값</th><th>원문 위치</th></tr></thead>
+<tbody>
+<tr><td>Civ50에 투입한 에이전트 수</td><td class="num">50</td><td><small>Multi-agent dynamics in Minecraft</small></td></tr>
+<tr><td>에이전트 네 개가 뼛가루 하나의 담당자를 정하는 데 쓴 시간</td><td class="num">11 minutes</td><td><small>Multi-agent dynamics in Minecraft</small></td></tr>
+<tr><td>Mindustry 전적(GPT 팀 기준)</td><td class="num">6-1<br><small>비교: Claude 팀</small></td><td><small>Multi-agent dynamics in Minecraft</small></td></tr>
+<tr><td>Mindustry 경기 수</td><td class="num">7</td><td><small>Multi-agent dynamics in Minecraft</small></td></tr>
+</tbody></table></div>
+
+<h2>한계·반론 <span class="tag">원문 내용</span></h2>
+<ul><li>원문은 연구진 블로그를 다시 전한 간접 자료입니다. 에이전트별 프롬프트, 실행 환경 설정, 반복 횟수, 평가 기준은 기사에 나오지 않습니다.</li><li>Civ50은 GPT-6.1 Sol만 썼고 Claude는 넣지 않았습니다. 기사도 모델 구성을 단정하지 않고 추정하듯 적었습니다. 이 실험만으로는 관료적인 행동이 모델 특성인지 군집 구조 때문인지 가를 수 없습니다.</li><li>Bed Wars에서는 도구 버그로 블록 부수기가 막혔습니다. 모델별 대응 차이는 드러났지만 환경 결함이 행동 비교에 섞였고, 이 모드의 승패는 기사에 없습니다.</li><li>Mindustry 결과는 7경기 표본입니다. 연구진도 모델 조합과 군집 크기를 바꾼 비교를 열린 질문으로 남겼습니다.</li></ul>
+
+<h2>시사점 <span class="tag mine">제 해석</span></h2>
+<p class="mine-note">여기부터는 원문이 아니라 제 해석입니다.</p>
+<div class="mine-box"><h3><i class="e">🛠️</i> 기술</h3><p>결론부터 말하면 이 기사는 모델 순위표로 읽으면 안 되고, 멀티 에이전트 설계에서 무엇이 망가지는지 보여 주는 사례로 읽어야 합니다. Civ50에는 Claude가 없었고, Bed Wars에는 도구 버그가 섞였고, Mindustry는 7경기뿐입니다. 하네스(에이전트에 도구·기억·규칙을 연결해 실행하는 틀)와 프롬프트가 양쪽에 같았는지도 기사로는 확인할 수 없습니다. 오히려 눈에 띄는 건 GPT 쪽 행동이 실험마다 달랐다는 점입니다. Civ50의 GPT-6.1 Sol 50개는 관료적으로 움직였는데, Mindustry의 GPT 팀은 벌집처럼 한 덩어리로 움직였습니다. 기사만 보면 같은 계열 모델도 과제와 군집 크기에 따라 전혀 다르게 행동한 셈이죠. 그렇다면 승패를 모델 탓으로만 돌리는 게 맞을까요? 저는 군집 크기, 역할 구조, 실패 비용 같은 구조 쪽 비중이 더 크다고 봅니다. 다만 이 기사만으로 둘을 나눠 판단하기는 어렵습니다.</p>
+<p>교훈은 마인크래프트 밖에서도 쓸 수 있게 세 가지로 정리됩니다. 첫째, 결정 절차의 무게를 일의 크기에 맞춰야 합니다. 에이전트 네 개가 뼛가루 하나에 11분을 쓴 장면은 조율 비용이 일의 가치보다 커진 경우입니다. 되돌리기 쉬운 작은 일은 담당 에이전트가 바로 처리하고, 합의는 되돌리기 어려운 결정에만 쓰라는 규칙을 하네스에 넣는 게 맞습니다. 둘째, 실패의 실제 비용을 에이전트에게 보여 줘야 합니다. 원문에 원인 분석은 없지만, 첫날 밤 피해의 불이익이 작았는데도 야심 찬 과제를 버렸다는 건 에이전트가 위험을 실제보다 크게 봤다는 신호로 읽힙니다. 셋째, 도구 오류를 '불가능'으로 결론 내기 전에 진단하고, 찾은 우회 방법을 다른 에이전트와 나누는 경로가 필요합니다. 연구진이 코딩 에이전트에서도 비슷한 패턴을 봤다고 했으니, 이 세 가지는 코드 저장소에서도 점검해 볼 만합니다. 덧붙이면, Claude 여러 개가 부수기를 불가능하다고 결론 낸 장면은 Claude를 쓰는 팀이라면 따로 확인해 볼 부분입니다. 도구가 실패했을 때 포기하는지 진단하는지가 프롬프트와 하네스로 바뀌는지 시험해 볼 여지가 있습니다. 공개된 군집 코드로 같은 하네스에 모델만 바꿔 돌려 보고, 에이전트 행동을 조율과 실제 작업으로 나눠 기록하는 것부터 해봅시다.</p></div>
+<div class="mine-box"><h3><i class="e">💼</i> 사업</h3><p>사업 쪽 결론도 짧습니다. 에이전트를 많이 붙인다고 일이 저절로 되지는 않습니다. 이 실험에서 에이전트 50개는 세 시간 안에 번성하는 문명을 만들지 못했고, 일부는 작은 일의 담당자를 정하는 데 시간을 썼습니다. 뼛가루 하나에 전담 직책을 만든 걸 보면, 사람 회사의 회의 문화까지 꽤 잘 배운 모양입니다. 사람 조직이 커지면 회의와 결재가 늘어나는 모습과 같은 셈이죠. 차이는 에이전트의 회의에도 매번 토큰(LLM이 읽고 쓰는 글자 조각 단위로 매기는 사용량) 비용이 나간다는 점입니다. 팀에서는 에이전트가 조율과 실제 작업에 쓰는 비중을 나눠 보고 계신가요?</p>
+<p>도입을 검토한다면 에이전트 수부터 정하지 말고, 작은 규모로 시작해 결과물 기준으로 성과를 재는 편이 좋겠습니다. 누가 최종 결정을 내리는지, 어떤 일은 확인 없이 바로 처리하는지를 미리 정해 두는 것도 중요합니다. 모델 선택도 '어느 회사 모델이 6-1로 이겼다'는 기사 한 줄로 정할 일은 아닙니다. 자기 업무와 비슷한 작은 시험을 돌려 보고 정하는 편이 안전합니다.</p></div>
+
+<h2>원문</h2>
+<div class="origin"><b>AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy</b>
+<a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy">www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy</a> · 2026년 11월 1일 공개 · 원문 전문을 읽고 썼습니다</div>
+
+</main></body></html>
