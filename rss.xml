@@ -5,12 +5,19 @@
   <link>https://simsimhae91.github.io/legendary-octo-fishstick/</link>
   <description>최신 기술과 논문을 읽고 남기는 리뷰</description>
   <language>ko</language>
-  <lastBuildDate>Sat, 31 Oct 2026 23:25:10 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 22:29:55 GMT</lastBuildDate>
+  <item>
+    <title>에이전트 50개에 문명을 맡기자 관료주의가 나왔습니다</title>
+    <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-02-ai-agent-swarms-in-minecraft-fail.html</link>
+    <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-02-ai-agent-swarms-in-minecraft-fail.html</guid>
+    <pubDate>Sun, 01 Nov 2026 23:28:25 GMT</pubDate>
+    <description>ycombinator와 Olam Labs 연구진이 마인크래프트에서 AI 에이전트 군집을 협력시키고 서로 맞붙였습니다. Civ50 실험에서 에이전트 50개는 세 시간 안에 번성하는 문명을 만들라는 과제를 받았지만 초기 목표를 여럿 버렸고, 조심스러운 생존과 관료적인 경향</description>
+  </item>
   <item>
     <title>LLM이 만든 법률 QA 데이터, 검증은 충분했을까?</title>
     <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html</link>
     <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-01-arxiv-2610-40518.html</guid>
-    <pubDate>Sat, 31 Oct 2026 23:09:55 GMT</pubDate>
+    <pubDate>Sat, 31 Oct 2026 23:25:10 GMT</pubDate>
     <description>GPT-4o로 만든 인도 지식재산권 법 추출형 QA 4,462쌍에서는 InLegalBERT(인도 법률 문서로 사전 학습한 언어 모델)를 미세 조정한 결과가 F1(정밀도와 재현율을 함께 본 점수) 85.02로 가장 높았습니다. 하지만 이 모델이 정답과 완전히 일치하지 못</description>
   </item>
   <item>
