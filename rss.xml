@@ -5,12 +5,19 @@
   <link>https://simsimhae91.github.io/legendary-octo-fishstick/</link>
   <description>최신 기술과 논문을 읽고 남기는 리뷰</description>
   <language>ko</language>
-  <lastBuildDate>Tue, 03 Nov 2026 23:18:57 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 05 Nov 2026 09:55:12 GMT</lastBuildDate>
+  <item>
+    <title>정답 이미지를 먼저 상상하는 검색 모델, FactEmbed</title>
+    <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-05-arxiv-2611-05193.html</link>
+    <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-05-arxiv-2611-05193.html</guid>
+    <pubDate>Wed, 04 Nov 2026 23:16:48 GMT</pubDate>
+    <description>FactEmbed는 MLLM(Multimodal Large Language Model, 이미지와 글을 함께 읽는 대형 언어 모델) 기반 이미지 검색 모델이 검색용 벡터를 만들기 전에, 수정이 반영된 정답 이미지를 내부에서 먼저 복원해 보도록 학습시키는 방법입니다. CI</description>
+  </item>
   <item>
     <title>CoworkOS: 벤치마크는 박빙, 자동 사후 학습은 +9.76</title>
     <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-04-arxiv-2611-03178.html</link>
     <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-04-arxiv-2611-03178.html</guid>
-    <pubDate>Tue, 03 Nov 2026 23:09:11 GMT</pubDate>
+    <pubDate>Tue, 03 Nov 2026 23:18:57 GMT</pubDate>
     <description>CoworkOS는 &apos;무엇을 할지, 누구에게 맡길지, 결과를 받아들일지&apos;는 모델이 정하고, 상태와 피드백 관리는 런타임이 맡도록 역할을 나눈 하네스입니다. 같은 모델로 돌린 12개 벤치마크에서 기존 공개 하네스인 OpenHands·Codex·DSH(DeepSeek Har</description>
   </item>
   <item>
