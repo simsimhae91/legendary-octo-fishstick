@@ -5,12 +5,19 @@
   <link>https://simsimhae91.github.io/legendary-octo-fishstick/</link>
   <description>최신 기술과 논문을 읽고 남기는 리뷰</description>
   <language>ko</language>
-  <lastBuildDate>Thu, 05 Nov 2026 09:55:12 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 09:49:34 GMT</lastBuildDate>
+  <item>
+    <title>강화학습 에이전트는 똑똑해진 걸까, 끈질겨진 걸까?</title>
+    <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-06-arxiv-2611-06483.html</link>
+    <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-06-arxiv-2611-06483.html</guid>
+    <pubDate>Thu, 05 Nov 2026 23:19:51 GMT</pubDate>
+    <description>멀티턴 RL(Reinforcement Learning, 강화학습)로 학습한 LLM 에이전트는 허용 턴이 넉넉할 때 기반 모델을 크게 앞섰지만, 턴 예산이 빠듯해지면 우위가 줄었고 일부 과제에서는 뒤집혔습니다. 원문은 이 우위가 한 단계씩의 판단이 나아져서가 아니라 오류</description>
+  </item>
   <item>
     <title>정답 이미지를 먼저 상상하는 검색 모델, FactEmbed</title>
     <link>https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-05-arxiv-2611-05193.html</link>
     <guid isPermaLink="true">https://simsimhae91.github.io/legendary-octo-fishstick/posts/2026-11-05-arxiv-2611-05193.html</guid>
-    <pubDate>Wed, 04 Nov 2026 23:16:48 GMT</pubDate>
+    <pubDate>Thu, 05 Nov 2026 09:55:12 GMT</pubDate>
     <description>FactEmbed는 MLLM(Multimodal Large Language Model, 이미지와 글을 함께 읽는 대형 언어 모델) 기반 이미지 검색 모델이 검색용 벡터를 만들기 전에, 수정이 반영된 정답 이미지를 내부에서 먼저 복원해 보도록 학습시키는 방법입니다. CI</description>
   </item>
   <item>
